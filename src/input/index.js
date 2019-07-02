@@ -1,7 +1,7 @@
 Component({
     behaviors: ['wx://form-field'],
 
-    externalClasses: ['i-class'],
+    externalClasses: ['i-class','i-input-class'],
 
     properties: {
         title: {
@@ -36,8 +36,22 @@ Component({
             type: Boolean,
             value: false
         },
+        errorColor: {
+            type: String,
+            value: '#f00'
+        },
         maxlength: {
             type: Number
+        },
+        minHeight: {
+            type: Number
+        },
+        maxHeight: {
+            type: Number
+        },
+        required: {
+            type: Boolean,
+            value: false
         }
     },
 
@@ -52,10 +66,12 @@ Component({
 
         handleInputFocus(event) {
             this.triggerEvent('focus', event);
+            this.setData({ focused: true });
         },
 
         handleInputBlur(event) {
             this.triggerEvent('blur', event);
+            this.setData({ focused: false });
         }
     }
 });

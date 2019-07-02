@@ -5,15 +5,28 @@
 .i-input{
     padding: 7px 15px;
     color: @text-color;
+    position: relative;
 
     &-wrapped{
         margin: 10px 15px;
         background-color: #fff;
+        padding:4px 15px;
 
         &::after{
             left: 0;
             border-width: 1px;
             border-radius: 4px;
+        }
+    }
+
+    &-required {
+        &::before {
+            content: '*';
+            position: absolute;
+            top: 10px;
+            left: 7px;
+            color: #f00;
+            font-size: 14px;
         }
     }
 
@@ -37,6 +50,7 @@
     }
 
     &-placeholder{
+        color: #ccc;
         font-size: @size-font-base;
     }
 
@@ -53,4 +67,12 @@
 /* 圆角输入框出现错误时，将边框也置红 */
 .i-input-wrapped.i-input-error::after  {
     border-color: @error-color;
+}
+
+/* 必填时，左侧边距增加 */
+.i-input-wrapped.i-input-required {
+    padding:4px 15px 4px 25px;
+}
+.i-input-error .i-input-placeholder {
+    color: @error-color;
 }

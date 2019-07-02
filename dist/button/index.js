@@ -33,6 +33,7 @@ Component({
             type: Boolean,
             value: false
         },
+        formType: String,
         openType: String,
         appParameter: String,
         hoverStopPropagation: Boolean,
